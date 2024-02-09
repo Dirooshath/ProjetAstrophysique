@@ -1,0 +1,262 @@
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <title>Animation HTML5</title>
+        <meta name="description" content="Simulation physique en HTML5 ">
+        <meta name="author" content="Jean-Francois Chabot">
+    </head>
+
+    <style>
+        *{
+            margin : 0;
+            padding : 0;            
+        }
+    </style>
+
+    <!-- <style type="text/css"> 
+        /* #region Gros Titre */
+        .tSol {position: absolute;
+             left: 630px; top: 50px;
+             width: 300px;
+             text-align: center;}
+        .tT {position: absolute;
+             left: 630px; top: 120px;
+             width: 300px;
+             text-align: center;}
+        .tM {position: absolute;
+             left: 630px; top: 190px;
+             width: 300px;
+             text-align: center;}
+        .tSat {position: absolute;
+             left: 630px; top: 300px;
+             width: 300px;
+             text-align: center;}
+        /* #endregion */
+
+        /* #region Form */
+        .fG {position: absolute;
+             left: 640px; top: 20px;
+             width: 400px;
+             text-align: left;}
+        .fMSol {position: absolute;
+             left: 640px; top: 90px;
+             width: 400px;
+             text-align: left;}
+        .fMT {position: absolute;
+             left: 640px; top: 160px;
+             width: 400px;
+             text-align: left;}
+        .fMM {position: absolute;
+             left: 640px; top: 230px;
+             width: 400px;
+             text-align: left;}
+        .fPM {position: absolute;
+             left: 640px; top: 270px;
+             width: 400px;
+             text-align: left;}        
+        .fVSat {position: absolute;
+             left: 640px; top: 340px;
+             width: 400px;
+             text-align: left;}
+        .fDSat {position: absolute;
+             left: 640px; top: 380px;
+             width: 400px;
+             text-align: left;}
+        /* #endregion */
+
+        /* #region Bouton Radio */
+        .rG {position: absolute;
+             left: 1000px; top: 20px;} 
+        .rMSol {position: absolute;
+                left: 1000px; top: 90px;}   
+        .rMT {position: absolute;
+                left: 1000px; top: 160px;}  
+        .rMM {position: absolute;
+                left: 1000px; top: 230px;} 
+        .rPM {position: absolute;
+                left: 1000px; top: 270px;}  
+        .rVSat {position: absolute;
+                left: 1000px; top: 340px;} 
+        .rDSat {position: absolute;
+                left: 1000px; top: 380px;} 
+        /* #endregion */  
+
+        /* #region Button */
+        .b1 {position: absolute;
+             left: 640px; top: 460px;
+             width: 100px;
+             background-color: crimson;
+             text-align: center;}
+        .b2 {position: absolute;
+             left: 780px; top: 460px;
+             width: 100px;
+             background-color: forestgreen;
+             text-align: center;}
+        /* #endregion */
+    </style> -->
+
+    <body>
+        <!-- #region Définition du canvas, notre zone de dessin dans lequel aura lieu l'animation '-->
+        <canvas id="canvas" width="624" height="624" style="background-color: black; border:1px solid lightgrey;">
+            Your browser does not support the HTML5 canvas tag.
+        </canvas>  
+        <!-- #endregion -->        
+
+        <!-- #region Contrôle de la constante G -->
+        <!--<form class="fG">
+            Constante G : 
+            <input type='number' id='G' value="1" min="1" max="100" step="1">
+        </form>
+
+        <form class="rG" name="form_radioG">
+            <div>   
+                <input type="radio" name="radioG" id="radioG_choice1" value="1" checked>
+                <label for="radioG_choice1">1</label>
+                <input type="radio" name="radioG" id="radioG_choice2" value="10">
+                <label for="radioG_choice2">10</label>                
+            </div>
+        </form>  -->
+        <!-- #endregion -->
+        
+        <!-- #region Contrôle des paramètres du Soleil -->
+        <!--<h1 class="tSol">Soleil</h1>
+
+        <form class="fMSol">
+            Masse : 
+            <input type='number' id='MSol' value="20" min="20" max="1000" step="1">
+        </form>
+
+        <form class="rMSol" name="form_radioMSol">
+            <div>   
+                <input type="radio" name="radioMSol" id="radioMSol_choice1" value="1" checked>
+                <label for="radioMSol_choice1">1</label>
+                <input type="radio" name="radioMSol" id="radioMSol_choice2" value="10">
+                <label for="radioMSol_choice2">10</label>
+                <input type="radio" name="radioMSol" id="radioMSol_choice3" value="100">
+                <label for="radioMSol_choice3">100</label>
+            </div>
+        </form>   -->
+        <!-- #endregion -->
+        
+        <!-- #region Contrôle des paramètres de la Terre -->
+        <!--<h1 class="tT">Planète Terre</h1>
+
+        <form class="fMT">
+            Masse : 
+            <input type='number' id='MT' value="10" min="10" max="900" step="1">
+        </form>
+
+        <form class="rMT" name="form_radioMT">
+            <div>   
+                <input type="radio" name="radioMT" id="radioMT_choice1" value="1" checked>
+                <label for="radioMT_choice1">1</label>
+                <input type="radio" name="radioMT" id="radioMT_choice2" value="10">
+                <label for="radioMT_choice2">10</label>
+                <input type="radio" name="radioMT" id="radioMT_choice3" value="100">
+                <label for="radioMT_choice3">100</label>
+            </div>
+        </form>  -->
+        <!-- #endregion --> 
+
+        <!-- #region Contrôle des paramètres de Mars -->
+        <!--<h1 class="tM">Planète Mars</h1>
+
+        <form class="fMM">
+            Masse : 
+            <input type='number' id='MM' value="5" min="5" max="800" step="1">
+        </form>
+
+        <form class="rMM" name="form_radioMM">
+            <div>   
+                <input type="radio" name="radioMM" id="radioMM_choice1" value="1" checked>
+                <label for="radioMM_choice1">1</label>
+                <input type="radio" name="radioMM" id="radioMM_choice2" value="10">
+                <label for="radioMM_choice2">10</label>
+                <input type="radio" name="radioMM" id="radioMM_choice3" value="100">
+                <label for="radioMM_choice3">100</label>
+            </div>
+        </form>  
+
+        <form class="fPM">
+            Position (deg) : 
+            <input type='number' id='PM' value="0.0" step="1">
+        </form>
+
+        <form class="rPM" name="form_radioPM">
+            <div>   
+                <input type="radio" name="radioPM" id="radioPM_choice1" value="0.1">
+                <label for="radioPM_choice1">0.1</label>
+                <input type="radio" name="radioPM" id="radioPM_choice2" value="1" checked>
+                <label for="radioPM_choice2">1</label>
+                <input type="radio" name="radioPM" id="radioPM_choice3" value="10">
+                <label for="radioPM_choice3">10</label>
+            </div>
+        </form>  -->
+        <!-- #endregion --> 
+
+        <!-- #region Contrôle des paramètres du satellite -->
+        <!--<h1 class="tSat">Satellite</h1>
+
+        <form class="fVSat">
+            Vitesse : 
+            <input type='number' id='VSat' value="0.00" min="0" max="100" step="1">
+        </form>
+
+        <form class="rVSat" name="form_radioVSat">
+            <div>   
+                <input type="radio" name="radioVSat" id="radioVSat_choice1" value="0.01">
+                <label for="radioVSat_choice1">0.01</label>
+                <input type="radio" name="radioVSat" id="radioVSat_choice2" value="0.1">
+                <label for="radioVSat_choice2">0.1</label>
+                <input type="radio" name="radioVSat" id="radioVSat_choice3" value="1" checked>
+                <label for="radioVSat_choice3">1</label>
+                <input type="radio" name="radioVSat" id="radioVSat_choice4" value="10">
+                <label for="radioVSat_choice4">10</label>
+            </div>
+        </form>  
+
+        <form class="fDSat">
+            Direction (deg) : 
+            <input type='number' id='DSat' value="0" step="1">
+        </form>
+
+        <form class="rDSat" name="form_radioDSat">
+            <div>   
+                <input type="radio" name="radioDSat" id="radioDSat_choice1" value="1" checked>
+                <label for="radioDSat_choice1">1</label>
+                <input type="radio" name="radioDSat" id="radioDSat_choice2" value="10">
+                <label for="radioDSat_choice2">10</label>
+            </div>
+        </form>  -->
+        <!-- #endregion --> 
+
+        <!-- #region Contrôle des boutons -->
+        <!--<form class="b1">
+            <input
+                type="button"
+                id="reset"
+                value="Reset"
+                onclick="boutonReset();"
+            />
+        </form>
+
+        <form class="b2">
+            <input
+                type="button"
+                id="start"
+                value="Lancement"
+                onclick="boutonStart();"
+            />
+        </form>-->
+        <!-- #endregion -->
+
+        <!-- #region Chargement des scripts -->
+        <script src="particule.js"></script>
+        <script src="satellite.js"></script>
+        <script src="soleil.js"></script>
+        <script src="planete.js"></script>
+        <script src="traitement.js"></script>
+        <script src="main.js"></script>
+        <!-- #endregion -->
+    </body>
+</html>
